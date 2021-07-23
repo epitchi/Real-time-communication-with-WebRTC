@@ -3,6 +3,7 @@
 // In this codelab, you  only stream video, not audio (video: true).
 const mediaStreamConstraints = {
     video: true,
+    audio: true,
 };
 
 // The video element where the stream is displayed
@@ -10,6 +11,18 @@ const localVideo = document.querySelector('video');
 
 // The local stream that's displayed on the video
 let localStream;
+
+// Video resolution
+const hdConstraints = {
+    video: {
+        width: {
+            min: 1280
+        },
+        height: {
+            min: 720
+        }
+    }
+}
 
 // Handle success and add the MediaStream to the video element
 function gotLocalMediaStream(mediaStream) {

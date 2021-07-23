@@ -1,0 +1,24 @@
+/* Add CSS filters to the video element, like this: */
+
+
+/* video {
+    filter: blur(4px) invert(1) opacity(0.5);
+}
+ */
+
+
+/* Add SVG filters, like this: */
+
+
+/* 
+video {
+    filter: hue-rotate(180deg) saturate(200%);
+} */
+
+
+/* Your browser calculates the height automatically. */
+
+video {
+    max-width: 100%;
+    width: 320px;
+}
