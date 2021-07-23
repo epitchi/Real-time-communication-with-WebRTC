@@ -1,40 +1,27 @@
 'use strict';
 
-// In this codelab, you  only stream video, not audio (video: true).
+// On this codelab, you will be streaming only video (video: true).
 const mediaStreamConstraints = {
     video: true,
-    audio: true,
 };
 
-// The video element where the stream is displayed
+// Video element where stream will be placed.
 const localVideo = document.querySelector('video');
 
-// The local stream that's displayed on the video
+// Local stream that will be reproduced on the video.
 let localStream;
 
-// Video resolution
-const hdConstraints = {
-    video: {
-        width: {
-            min: 1280
-        },
-        height: {
-            min: 720
-        }
-    }
-}
-
-// Handle success and add the MediaStream to the video element
+// Handles success by adding the MediaStream to the video element.
 function gotLocalMediaStream(mediaStream) {
     localStream = mediaStream;
     localVideo.srcObject = mediaStream;
 }
 
-// Handle error and log a message to the console with the error message
+// Handles error by logging a message to the console with the error message.
 function handleLocalMediaStreamError(error) {
     console.log('navigator.getUserMedia error: ', error);
 }
 
-// Initialize media stream
+// Initializes media stream.
 navigator.mediaDevices.getUserMedia(mediaStreamConstraints)
     .then(gotLocalMediaStream).catch(handleLocalMediaStreamError);
